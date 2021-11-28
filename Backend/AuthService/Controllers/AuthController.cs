@@ -68,10 +68,14 @@ namespace AuthService.Controllers
             return Ok(new { success = success });
         }
 
-        [HttpGet("id")]
+        [HttpGet("{id}")]
         public async Task<ActionResult<User>> GetUserDetail(int id)
         {
             var user = await _context.Users.FindAsync(id);
+            if (user == null)
+            {
+                return NotFound();
+            }
             return user;
         }
     }

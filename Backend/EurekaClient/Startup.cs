@@ -1,14 +1,12 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
-using MovieService.Models;
 using Steeltoe.Discovery.Client;
 
-namespace MovieService
+namespace EurekaClient
 {
     public class Startup
     {
@@ -22,20 +20,15 @@ namespace MovieService
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
-            services.AddControllers();
-            services.AddDbContext<ApplicationDBContext>(options => options.UseSqlite(Configuration.GetConnectionString("MovieDB")));
-
-            // added MovieSerive to  Eureka discovery server
             services.AddDiscoveryClient(Configuration);
-
+            services.AddControllers();
             services.AddControllers()
                 .AddNewtonsoftJson(options =>
                     options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
                 );
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "MovieService", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "EurekaClient", Version = "v1" });
             });
         }
 
@@ -46,7 +39,7 @@ namespace MovieService
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "MovieService v1"));
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "EurekaClient v1"));
             }
 
             app.UseHttpsRedirection();
