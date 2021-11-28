@@ -6,6 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using ReviewService.Models;
+using Steeltoe.Discovery.Client;
 
 namespace ReviewService
 {
@@ -24,6 +25,10 @@ namespace ReviewService
 
             services.AddControllers();
             services.AddDbContext<ApplicationDBContext>(options => options.UseSqlite(Configuration.GetConnectionString("ReviewDB")));
+            
+            // added ReviewSerive to  Eureka discovery server
+            services.AddDiscoveryClient(Configuration);
+
             services.AddControllers()
                 .AddNewtonsoftJson(options =>
                     options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore

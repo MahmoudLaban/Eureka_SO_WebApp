@@ -9,6 +9,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using Steeltoe.Discovery.Client;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,6 +33,10 @@ namespace AuthService
             services.AddControllers();
             services.Configure<AppSettings>(Configuration.GetSection("AppSettings"));
             services.AddDbContext<ApplicationDBContext>(options => options.UseSqlite(Configuration.GetConnectionString("UserDB")));
+
+            // added AuthSerive to  Eureka discovery server
+            services.AddDiscoveryClient(Configuration);
+
             services.AddControllers()
                 .AddNewtonsoftJson(options =>
                     options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore

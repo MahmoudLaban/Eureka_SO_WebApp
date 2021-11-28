@@ -9,6 +9,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using MovieService.Models;
+using Steeltoe.Discovery.Client;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,6 +32,10 @@ namespace MovieService
 
             services.AddControllers();
             services.AddDbContext<ApplicationDBContext>(options => options.UseSqlite(Configuration.GetConnectionString("MovieDB")));
+
+            // added MovieSerive to  Eureka discovery server
+            services.AddDiscoveryClient(Configuration);
+
             services.AddControllers()
                 .AddNewtonsoftJson(options =>
                     options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
