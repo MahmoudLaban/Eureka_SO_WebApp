@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReviewService", "ReviewServ
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EurekaClient", "EurekaClient\EurekaClient.csproj", "{3413991F-88FF-4CA9-8B75-7C029870BC72}"
 EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{3AD5972D-81E8-4D20-B09F-F34C2516E270}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{3413991F-88FF-4CA9-8B75-7C029870BC72}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3413991F-88FF-4CA9-8B75-7C029870BC72}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3413991F-88FF-4CA9-8B75-7C029870BC72}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3AD5972D-81E8-4D20-B09F-F34C2516E270}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3AD5972D-81E8-4D20-B09F-F34C2516E270}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3AD5972D-81E8-4D20-B09F-F34C2516E270}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3AD5972D-81E8-4D20-B09F-F34C2516E270}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
