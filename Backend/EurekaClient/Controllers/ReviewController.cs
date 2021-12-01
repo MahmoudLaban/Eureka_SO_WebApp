@@ -43,9 +43,9 @@ namespace EurekaClient.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<ActionResult<Review>> UpdateMovieReview(int id, string review_text)
+        public async Task<ActionResult<Review>> UpdateMovieReview(int id, ReviewTextDto dto)
         {
-            var response = await _httpClient.PutAsJsonAsync(baseDiscoveryUrl + "/" + id.ToString(), review_text);
+            var response = await _httpClient.PutAsJsonAsync(baseDiscoveryUrl + "/" + id.ToString(), dto);
             if (response.IsSuccessStatusCode)
             {
                 var temp = response.Content.ReadAsStringAsync().Result;

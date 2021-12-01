@@ -38,7 +38,7 @@ namespace ReviewService.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<ActionResult<Review>> UpdateMovieReview(int id, string review_text)
+        public async Task<ActionResult<Review>> UpdateMovieReview(int id, ReviewTextDto dto)
         {
             var reviewExist = await _context.Reviews.FindAsync(id);
             if(reviewExist == null)
@@ -47,7 +47,7 @@ namespace ReviewService.Controllers
             }
             else
             {
-                reviewExist.review_text = review_text;
+                reviewExist.review_text = dto.review_text;
                 _context.Reviews.Update(reviewExist);
                 await _context.SaveChangesAsync();
                 return reviewExist;

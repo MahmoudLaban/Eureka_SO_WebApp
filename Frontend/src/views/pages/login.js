@@ -14,15 +14,16 @@ function Login() {
         
         e.preventDefault();
         try {
-            const data = await axiosInstance.post('User/auth-user', {
+            const data = await axiosInstance.post('Auth/auth-user', {
                 username: userName,
                 password: password
             });
-            console.log(data)
+            
             if(data !== undefined){
+                console.log(data)
                 setError(false);
-                localStorage.setItem('user_id', data.data.result.id);
-                localStorage.setItem('access_token', data.data.result.token);
+                localStorage.setItem('user_id', data.data.id);
+                localStorage.setItem('access_token', data.data.token);
                 window.location.href = '/';
             }
             return data;

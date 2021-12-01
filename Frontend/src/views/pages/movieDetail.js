@@ -7,7 +7,7 @@ import {withRouter} from 'react-router';
 
 function MovieDetail(props) {
     const [movieDetail, setMovieDetail] = useState({});
-    const [reviews, setReviews] = useState({});
+    const [reviews, setReviews] = useState([]);
     const [reviewText, setReviewText] = useState('');
     const [btnAddReviewText, setBtnAddReviewText] = useState('Add a Review');
     const movie_id = props.match.params.id;
@@ -16,6 +16,7 @@ function MovieDetail(props) {
     const getMovieDetail = async (id) => {
         const movieDetail = await axiosInstance.get(`Movie/${id}`);
         const reviews = await axiosInstance.get(`Review/${id}`);
+        console.log(reviews);
         setMovieDetail(movieDetail.data);
         setReviews(reviews.data);
     }
@@ -37,6 +38,7 @@ function MovieDetail(props) {
             }
             
             setReviewText('');
+            setSelReviewId(-1);
             setBtnAddReviewText('Add a Review');
             getMovieDetail(movie_id);
         }else{

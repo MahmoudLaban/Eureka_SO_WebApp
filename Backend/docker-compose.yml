@@ -1,31 +1,32 @@
 version: '3.4'
 
 services:
+
   eurekaclient:
-    image: ${DOCKER_REGISTRY-}eurekaclient
+    container_name: eurekaclient
     build:
       context: .
       dockerfile: EurekaClient/Dockerfile
     ports:
-      - "8080:8080"
+      - "8080:80"
   authservice:
-    image: ${DOCKER_REGISTRY-}authservice
+    container_name: authservice
     build:
       context: .
       dockerfile: AuthService/Dockerfile
     ports:
-      - "8081:8081"
+      - "8081:80"
   movieservice:
-    image: ${DOCKER_REGISTRY-}movieservice
+    container_name: movieservice
     build:
       context: .
       dockerfile: MovieService/Dockerfile
     ports:
-      - "8082:8082"
+      - "8082:80"
   reviewservice:
-    image: ${DOCKER_REGISTRY-}reviewservice
+    container_name: reviewservice
     build:
       context: .
       dockerfile: ReviewService/Dockerfile
     ports:
-      - "8083:8083"
+      - "8083:80"

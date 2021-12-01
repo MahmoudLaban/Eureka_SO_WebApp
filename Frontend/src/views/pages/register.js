@@ -22,7 +22,7 @@ function Register() {
             setValidError(true);
         }else{
             try {
-                const data = await axiosInstance.post('User', {
+                const data = await axiosInstance.post('Auth', {
                     username: userName,
                     password: password,
                     firstName: firstName,

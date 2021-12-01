@@ -21,7 +21,7 @@ namespace ReviewService
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
-                    webBuilder.UseUrls("http://localhost:8083/");
+                    
                 });
     }
 }
