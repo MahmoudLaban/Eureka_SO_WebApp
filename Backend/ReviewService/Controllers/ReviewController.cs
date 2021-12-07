@@ -10,6 +10,7 @@ using System.Linq;
 -https://docs.microsoft.com/en-us/aspnet/core/tutorials/first-web-api?view=aspnetcore-5.0&tabs=visual-studio
 -https://docs.microsoft.com/en-us/aspnet/core/web-api/?view=aspnetcore-6.0
 -https://github.com/dotnet/AspNetCore.Docs/tree/main/aspnetcore/web-api/index/samples/3.x
+-https://www.vitoshacademy.com/c-create-a-web-api-with-asp-net-core-video/
 */
 
 namespace ReviewService.Controllers
