@@ -21,7 +21,7 @@ using System.Threading.Tasks;
 
 namespace AuthService.Controllers
 {
-    [ApiController] //From VS .Net template. ApiController attributes applies web API behavior
+    [ApiController] //From VS .Net template. The "ApiController" attribute applies web API behavior
     [Route("[controller]")]
     public class AuthController : ControllerBase //Instantiating from Controllerbase (the base class for a MVC controller without view support)
     {
@@ -44,7 +44,7 @@ namespace AuthService.Controllers
             var user = _context.Users.Where(x => x.username == model.Username && x.password == model.Password).FirstOrDefault();
 
             if (user == null)
-                return BadRequest(new { message = "Username or password is incorrect" });
+                return BadRequest(new { message = "Either the user name or password is incorrect" });
             
             var tokenHandler = new JwtSecurityTokenHandler();
             var key = Encoding.ASCII.GetBytes(_appSettings.Secret);

@@ -31,13 +31,13 @@ function Register() {
                 console.log(data.data)
                 if (data.data.success === false){
                     setError(true);
-                    setMessage("Username does exist!, please try another user name");
+                    setMessage("Username exists! Please try another");
                 }else{
                     window.location.href = '/login';
                 }
             } catch (error) {
                 setError(true);
-                setMessage("Something error!");
+                setMessage("There is an error!");
             }
         }
         
@@ -58,7 +58,7 @@ function Register() {
                         <div className="login-part">
                             <Row>
                                 <Col className="col-12 text-center">
-                                    <label >Please Enter Your Information</label>
+                                    <label >Please enter your log in details</label>
                                 </Col>
                                 <Col className="col-12 text-center">
                                     {error &&<label className="text-danger">{message}</label>}
@@ -140,7 +140,7 @@ function Register() {
                                     <Button style={{width:"100%"}} type='submit'>Register</Button>
                                 </div>
                                 <div className="col-12 pt-2">
-                                    <span>You have alreay account?</span><a className='ml-3' href="/login">Login</a>
+                                    <span>Or log in if you have an account:</span><a className='ml-3' href="/login">Login</a>
                                 </div>
                             </div>
                         </div>

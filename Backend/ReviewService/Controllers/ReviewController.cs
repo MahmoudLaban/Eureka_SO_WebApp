@@ -15,7 +15,7 @@ using System.Linq;
 
 namespace ReviewService.Controllers
 {
-    [ApiController] //From VS .Net template. ApiController attributes applies web API behavior
+    [ApiController] //From VS .Net template. The "ApiController" attribute applies web API behavior
     [Route("[controller]")]
     public class ReviewController : ControllerBase //Instantiating from Controllerbase (the base class for a MVC controller without view support)
     {

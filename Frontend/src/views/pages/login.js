@@ -47,10 +47,10 @@ function Login() {
                         <div className="login-part">
                             <Row>
                                 <Col className="col-12 text-center">
-                                    <label >Please Enter Your Information</label>
+                                    <label >Please enter your log in details</label>
                                 </Col>
                                 <Col className="col-12 text-center">
-                                    {error &&<label className="text-danger">Please Enter correct information</label>}
+                                    {error &&<label className="text-danger">The details you have entered are incorrect</label>}
                                 </Col>
                             </Row>
                             <Row className='mt-2'>
@@ -86,7 +86,7 @@ function Login() {
                                     <Button style={{width:"100%"}} type='submit'>Login</Button>
                                 </div>
                                 <div className="col-12 pt-2">
-                                    <span>Don't you have an account?</span><a className='ml-3' href="/register">Sign Up</a>
+                                    <span>Do you have an account?</span><a className='ml-3' href="/register">Sign Up</a>
                                 </div>
                             </div>
                         </div>
