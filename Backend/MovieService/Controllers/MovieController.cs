@@ -28,13 +28,14 @@ namespace MovieService.Controllers
             
         }
 
+        #endregion
+
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Movie>>> GetAllMovies()
         {
             return await _context.Movies.ToListAsync();
         }
-
-        #endregion
+                
 
         [HttpGet("{id}")]
         public async Task<ActionResult<Movie>> GetMovie(int id)
