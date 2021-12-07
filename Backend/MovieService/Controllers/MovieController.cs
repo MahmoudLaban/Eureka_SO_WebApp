@@ -4,12 +4,22 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 
+/*references:
+-https://faun.pub/restful-web-api-using-c-net-core-3-1-with-sqlite-f020d76c9b89 
+-https://docs.microsoft.com/en-us/aspnet/core/tutorials/first-web-api?view=aspnetcore-5.0&tabs=visual-studio
+-https://docs.microsoft.com/en-us/aspnet/core/web-api/?view=aspnetcore-6.0
+-https://github.com/dotnet/AspNetCore.Docs/tree/main/aspnetcore/web-api/index/samples/3.x
+*/
+
 namespace MovieService.Controllers
 {
-    [ApiController]
+    [ApiController] //From VS .Net template. ApiController attributes applies web API behavior
     [Route("[controller]")]
-    public class MovieController : ControllerBase
+    public class MovieController : ControllerBase //Instantiating from Controllerbase (the base class for a MVC controller without view support)
     {
+
+        #region Constructor
+
         private readonly ApplicationDBContext _context;
         public MovieController(ApplicationDBContext context)
         {
@@ -22,6 +32,8 @@ namespace MovieService.Controllers
         {
             return await _context.Movies.ToListAsync();
         }
+
+        #endregion
 
         [HttpGet("{id}")]
         public async Task<ActionResult<Movie>> GetMovie(int id)

@@ -11,12 +11,22 @@ using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 
+/*references:
+-https://faun.pub/restful-web-api-using-c-net-core-3-1-with-sqlite-f020d76c9b89 
+-https://docs.microsoft.com/en-us/aspnet/core/tutorials/first-web-api?view=aspnetcore-5.0&tabs=visual-studio
+-https://docs.microsoft.com/en-us/aspnet/core/web-api/?view=aspnetcore-6.0
+-https://github.com/dotnet/AspNetCore.Docs/tree/main/aspnetcore/web-api/index/samples/3.x
+*/
+
 namespace AuthService.Controllers
 {
-    [ApiController]
+    [ApiController] //From VS .Net template. ApiController attributes applies web API behavior
     [Route("[controller]")]
-    public class AuthController : ControllerBase
+    public class AuthController : ControllerBase //Instantiating from Controllerbase (the base class for a MVC controller without view support)
     {
+
+        #region Constructor
+
         private readonly ApplicationDBContext _context;
         private readonly AppSettings _appSettings;
         public AuthController(ApplicationDBContext context, IOptions<AppSettings> appSettings)
@@ -24,6 +34,8 @@ namespace AuthService.Controllers
             _context = context;
             _appSettings = appSettings.Value;
         }
+
+        #endregion
 
         [HttpPost("auth-user")]
         public IActionResult Authenticate(AuthenticateRequest model)
