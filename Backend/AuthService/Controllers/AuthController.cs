@@ -27,7 +27,7 @@ namespace AuthService.Controllers
     {
 
         #region Constructor
-
+        //Inversion of Control container / Dependency Injection
         private readonly ApplicationDBContext _context;
         private readonly AppSettings _appSettings;
         public AuthController(ApplicationDBContext context, IOptions<AppSettings> appSettings)
@@ -38,6 +38,7 @@ namespace AuthService.Controllers
 
         #endregion
 
+        //POST -Http://AuthService/Auth/"auth-user"
         [HttpPost("auth-user")]
         public IActionResult Authenticate(AuthenticateRequest model)
         {
@@ -59,6 +60,7 @@ namespace AuthService.Controllers
             return Ok(authResponse);
         }
 
+        //POST -Http://AuthService/Auth/
         [HttpPost]
         public async Task<ActionResult<User>> CreateUser(RegisterUserDto model)
         {
@@ -81,6 +83,7 @@ namespace AuthService.Controllers
             return Ok(new { success = success });
         }
 
+        //GET -Http://AuthService/Auth/{id}
         [HttpGet("{id}")]
         public async Task<ActionResult<User>> GetUserDetail(int id)
         {

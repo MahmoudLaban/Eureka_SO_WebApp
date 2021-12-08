@@ -20,7 +20,7 @@ namespace MovieService.Controllers
     {
 
         #region Constructor
-
+        //Inversion of Control container / Dependency Injection
         private readonly ApplicationDBContext _context;
         public MovieController(ApplicationDBContext context)
         {
@@ -29,14 +29,14 @@ namespace MovieService.Controllers
         }
 
         #endregion
-
+        //GET -Http://MovieService/movie/
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Movie>>> GetAllMovies()
         {
             return await _context.Movies.ToListAsync();
         }
                 
-
+        //GET -Http://MovieService/movie/{id}
         [HttpGet("{id}")]
         public async Task<ActionResult<Movie>> GetMovie(int id)
         {
@@ -48,6 +48,7 @@ namespace MovieService.Controllers
             return movie;
         }
 
+        //POST -Http://MovieService/movie/
         [HttpPost]
         public async Task<ActionResult<Movie>> AddMovie(MovieRegisterDto movie)
         {
@@ -62,6 +63,7 @@ namespace MovieService.Controllers
             return newMovie;
         }
 
+        //PUT -Http://MovieService/movie/{id}
         [HttpPut("{id}")]
         public async Task<ActionResult<Movie>> CreateOrUpdateMovie(int id, MovieRegisterDto movie)
         {
@@ -87,6 +89,7 @@ namespace MovieService.Controllers
             return movieExist;
         }
 
+        //DELETE -Http://MovieService/movie/{id}
         [HttpDelete("{id}")]
         public async Task<ActionResult<Movie>> DeleteMovie(int id)
         {

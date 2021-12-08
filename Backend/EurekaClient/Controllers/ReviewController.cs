@@ -38,6 +38,7 @@ namespace EurekaClient.Controllers
 
         #endregion
 
+        //GET -http://<eureka-client-ip>:8080/review/{movie_id}
         [HttpGet("{movie_id}")]
         public async Task<ActionResult<List<Review>>> GetMovieReviews(int movie_id)
         {
@@ -45,6 +46,7 @@ namespace EurekaClient.Controllers
             return Ok(response);
         }
 
+        //POST -http://<eureka-client-ip>:8080/review/
         [HttpPost]
         public async Task<ActionResult<Review>> AddMovieReview(ReviewLiteDto dto)
         {
@@ -54,11 +56,12 @@ namespace EurekaClient.Controllers
             return Ok(result);
         }
 
+        //PUT -http://<eureka-client-ip>:8080/review/{id}
         [HttpPut("{id}")]
         public async Task<ActionResult<Review>> UpdateMovieReview(int id, ReviewTextDto dto)
         {
             var response = await _httpClient.PutAsJsonAsync(baseDiscoveryUrl + "/" + id.ToString(), dto);
-            if (response.IsSuccessStatusCode)
+            if (response.IsSuccessStatusCode) //Gets a value that indicates whether the HTTP response was successful
             {
                 var temp = response.Content.ReadAsStringAsync().Result;
                 var result = JsonConvert.DeserializeObject<Review>(temp);
@@ -70,6 +73,7 @@ namespace EurekaClient.Controllers
             }
         }
 
+        //DELETE -http://<eureka-client-ip>:8080/review/{id}
         [HttpDelete("{id}")]
         public async Task<ActionResult<Review>> DeleteMovieReview(int id)
         {

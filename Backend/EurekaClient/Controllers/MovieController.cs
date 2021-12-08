@@ -39,7 +39,7 @@ namespace EurekaClient.Controllers
         }
 
         #endregion
-
+        //GET -http://<eureka-client-ip>:8080/movie
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Movie>>> GetAllMovies()
         {
@@ -47,11 +47,12 @@ namespace EurekaClient.Controllers
             return Ok(response);
         }
 
+        //GET -http://<eureka-client-ip>:8080/movie/{id}
         [HttpGet("{id}")]
         public async Task<ActionResult<Movie>> GetMovie(int id)
         {
             var response = await _httpClient.GetAsync(baseDiscoveryUrl + "/" + id.ToString());
-            if (response.IsSuccessStatusCode)
+            if (response.IsSuccessStatusCode) //Gets a value that indicates whether the HTTP response was successful
             {
                 var temp = response.Content.ReadAsStringAsync().Result;
                 var result = JsonConvert.DeserializeObject<Movie>(temp);
@@ -63,6 +64,7 @@ namespace EurekaClient.Controllers
             }
         }
 
+        //POST -http://<eureka-client-ip>:8080/movie/
         [HttpPost]
         public async Task<ActionResult<Movie>> AddMovie(MovieRegisterDto movie)
         {
@@ -72,6 +74,7 @@ namespace EurekaClient.Controllers
             return Ok(result);
         }
 
+        //PUT -http://<eureka-client-ip>:8080/movie/{id}
         [HttpPut("{id}")]
         public async Task<ActionResult<Movie>> CreateOrUpdateMovie(int id, MovieRegisterDto movie)
         {
@@ -81,6 +84,7 @@ namespace EurekaClient.Controllers
             return Ok(result);
         }
 
+        //DELETE -http://<eureka-client-ip>:8080/movie/{id}
         [HttpDelete("{id}")]
         public async Task<ActionResult<Movie>> DeleteMovie(int id)
         {

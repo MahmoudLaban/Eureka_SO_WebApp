@@ -20,7 +20,7 @@ namespace ReviewService.Controllers
     public class ReviewController : ControllerBase //Instantiating from Controllerbase (the base class for a MVC controller without view support)
     {
         #region Constructor
-
+        //Inversion of Control container / Dependency Injection
         private readonly ApplicationDBContext _context;
         
         public ReviewController(ApplicationDBContext context)
@@ -30,12 +30,14 @@ namespace ReviewService.Controllers
 
         #endregion
 
+        //GET -Http://ReviewService/review/{movie_id}
         [HttpGet("{movie_id}")]
         public async Task<ActionResult<List<Review>>> GetMovieReviews(int movie_id)
         {
             return await _context.Reviews.Where(x => x.movie_id == movie_id).ToListAsync();
         }
 
+        //POST -Http://ReviewService/review/
         [HttpPost]
         public async Task<ActionResult<Review>> AddMovieReview(ReviewLiteDto dto)
         {
@@ -50,6 +52,7 @@ namespace ReviewService.Controllers
             return newReview;
         }
 
+        //PUT -Http://ReviewService/review/{id}
         [HttpPut("{id}")]
         public async Task<ActionResult<Review>> UpdateMovieReview(int id, ReviewTextDto dto)
         {
@@ -67,6 +70,7 @@ namespace ReviewService.Controllers
             }
         }
 
+        //DELETE -Http://ReviewService/review/{id}
         [HttpDelete("{id}")]
         public async Task<ActionResult<Review>> DeleteMovieReview(int id)
         {
