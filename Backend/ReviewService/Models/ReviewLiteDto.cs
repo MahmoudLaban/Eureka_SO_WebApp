@@ -5,6 +5,7 @@ namespace ReviewService.Models
 
     public class ReviewLiteDto
     {
+        //Add or modify review(s)
         [Required]
         public int user_id { get; set; }
 

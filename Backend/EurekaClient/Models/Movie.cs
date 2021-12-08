@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace EurekaClient.Models
 {
-    //For retrieving movies
+    //The Movie Class used for retrieving movie(s)
     public class Movie
     {
         public int id { get; set; }

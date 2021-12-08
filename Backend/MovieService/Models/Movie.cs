@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MovieService.Models
 {
+    //The Movie Class used for retrieving movie(s)
     [Table("collection")]
     public class Movie
     {

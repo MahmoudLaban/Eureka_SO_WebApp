@@ -4,6 +4,8 @@ namespace EurekaClient.Models
 {
     public class RegisterUserDto
     {
+        //Class used to add or edit user(s)
+
         [Required]
         public string Username { get; set; }
 
