@@ -42,7 +42,7 @@ namespace EurekaClient.Controllers
         [HttpGet("{movie_id}")]
         public async Task<ActionResult<List<Review>>> GetMovieReviews(int movie_id)
         {
-            var response = await _httpClient.GetFromJsonAsync<List<Review>>(baseDiscoveryUrl + "/" + movie_id.ToString());
+            var response = await _httpClient.GetFromJsonAsync<List<Review>>(baseDiscoveryUrl + "/" + movie_id.ToString()); //returns the result from the request into the "response" variable
             return Ok(response);
         }
 
@@ -50,7 +50,7 @@ namespace EurekaClient.Controllers
         [HttpPost]
         public async Task<ActionResult<Review>> AddMovieReview(ReviewLiteDto dto)
         {
-            var response = await _httpClient.PostAsJsonAsync(baseDiscoveryUrl, dto);
+            var response = await _httpClient.PostAsJsonAsync(baseDiscoveryUrl, dto);  //returns the result from the request into the "response" variable
             var temp = response.Content.ReadAsStringAsync().Result;
             var result = JsonConvert.DeserializeObject<Review>(temp);
             return Ok(result);
@@ -60,7 +60,7 @@ namespace EurekaClient.Controllers
         [HttpPut("{id}")]
         public async Task<ActionResult<Review>> UpdateMovieReview(int id, ReviewTextDto dto)
         {
-            var response = await _httpClient.PutAsJsonAsync(baseDiscoveryUrl + "/" + id.ToString(), dto);
+            var response = await _httpClient.PutAsJsonAsync(baseDiscoveryUrl + "/" + id.ToString(), dto);  //returns the result from the request into the "response" variable
             if (response.IsSuccessStatusCode) //Gets a value that indicates whether the HTTP response was successful
             {
                 var temp = response.Content.ReadAsStringAsync().Result;
@@ -77,7 +77,7 @@ namespace EurekaClient.Controllers
         [HttpDelete("{id}")]
         public async Task<ActionResult<Review>> DeleteMovieReview(int id)
         {
-            var response = await _httpClient.DeleteAsync(baseDiscoveryUrl + "/" + id.ToString());
+            var response = await _httpClient.DeleteAsync(baseDiscoveryUrl + "/" + id.ToString());  //returns the result from the request into the "response" variable
             if (response.IsSuccessStatusCode)
             {
                 var temp = response.Content.ReadAsStringAsync().Result;

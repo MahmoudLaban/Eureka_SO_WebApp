@@ -40,7 +40,7 @@ namespace EurekaClient.Controllers
         [HttpPost("auth-user")]
         public async Task<ActionResult<AuthenticateResponse>> Authenticate(AuthenticateRequest model)
         {
-            var response = await _httpClient.PostAsJsonAsync(baseDiscoveryUrl + "/auth-user", model);
+            var response = await _httpClient.PostAsJsonAsync(baseDiscoveryUrl + "/auth-user", model);  //returns the result from the request into the "response" variable
             if (response.IsSuccessStatusCode) //Gets a value that indicates whether the HTTP response was successful
             {
                 var temp = response.Content.ReadAsStringAsync().Result;
@@ -60,7 +60,7 @@ namespace EurekaClient.Controllers
         [HttpPost]
         public async Task<ActionResult<User>> CreateUser(RegisterUserDto model)
         {
-            var response = await _httpClient.PostAsJsonAsync(baseDiscoveryUrl, model);
+            var response = await _httpClient.PostAsJsonAsync(baseDiscoveryUrl, model);  //returns the result from the request into the "response" variable
             var temp = response.Content.ReadAsStringAsync().Result;
             var result = JsonConvert.DeserializeObject<User>(temp);
             return Ok(result);
@@ -70,7 +70,7 @@ namespace EurekaClient.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<User>> GetUserDetail(int id)
         {
-            var response = await _httpClient.GetAsync(baseDiscoveryUrl + "/" + id.ToString());
+            var response = await _httpClient.GetAsync(baseDiscoveryUrl + "/" + id.ToString());   //returns the result from the request into the "response" variable
             if (response.IsSuccessStatusCode)
             {
                 var temp = response.Content.ReadAsStringAsync().Result;
