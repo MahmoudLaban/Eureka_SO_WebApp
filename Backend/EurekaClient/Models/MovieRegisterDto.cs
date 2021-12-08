@@ -2,7 +2,7 @@
 
 namespace EurekaClient.Models
 {
-
+    //Add or modify movies
     public class MovieRegisterDto
     {
         [Required]

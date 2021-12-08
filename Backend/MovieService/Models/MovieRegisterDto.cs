@@ -5,6 +5,7 @@ namespace MovieService.Models
 
     public class MovieRegisterDto
     {
+        //Add or modify movies
         [Required]
         [StringLength(255)]
         public string Title { get; set; }

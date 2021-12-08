@@ -43,7 +43,7 @@ namespace EurekaClient.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Movie>>> GetAllMovies()
         {
-            var response = await _httpClient.GetFromJsonAsync<IEnumerable<Movie>>(baseDiscoveryUrl);
+            var response = await _httpClient.GetFromJsonAsync<IEnumerable<Movie>>(baseDiscoveryUrl); //returns the result from the request into the "response" variable
             return Ok(response);
         }
 
@@ -51,7 +51,7 @@ namespace EurekaClient.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Movie>> GetMovie(int id)
         {
-            var response = await _httpClient.GetAsync(baseDiscoveryUrl + "/" + id.ToString());
+            var response = await _httpClient.GetAsync(baseDiscoveryUrl + "/" + id.ToString()); //returns the result from the request into the "response" variable
             if (response.IsSuccessStatusCode) //Gets a value that indicates whether the HTTP response was successful
             {
                 var temp = response.Content.ReadAsStringAsync().Result;
@@ -68,7 +68,7 @@ namespace EurekaClient.Controllers
         [HttpPost]
         public async Task<ActionResult<Movie>> AddMovie(MovieRegisterDto movie)
         {
-            var response = await _httpClient.PostAsJsonAsync(baseDiscoveryUrl, movie);
+            var response = await _httpClient.PostAsJsonAsync(baseDiscoveryUrl, movie); //returns the result from the request into the "response" variable
             var temp = response.Content.ReadAsStringAsync().Result;
             var result = JsonConvert.DeserializeObject<Movie>(temp);
             return Ok(result);
@@ -78,7 +78,7 @@ namespace EurekaClient.Controllers
         [HttpPut("{id}")]
         public async Task<ActionResult<Movie>> CreateOrUpdateMovie(int id, MovieRegisterDto movie)
         {
-            var response = await _httpClient.PutAsJsonAsync(baseDiscoveryUrl + "/" + id.ToString(), movie);
+            var response = await _httpClient.PutAsJsonAsync(baseDiscoveryUrl + "/" + id.ToString(), movie); //returns the result from the request into the "response" variable
             var temp = response.Content.ReadAsStringAsync().Result;
             var result = JsonConvert.DeserializeObject<Movie>(temp);
             return Ok(result);
@@ -88,7 +88,7 @@ namespace EurekaClient.Controllers
         [HttpDelete("{id}")]
         public async Task<ActionResult<Movie>> DeleteMovie(int id)
         {
-            var response = await _httpClient.DeleteAsync(baseDiscoveryUrl + "/" + id.ToString());
+            var response = await _httpClient.DeleteAsync(baseDiscoveryUrl + "/" + id.ToString()); //returns the result from the request into the "response" variable
             if (response.IsSuccessStatusCode)
             {
                 var temp = response.Content.ReadAsStringAsync().Result;

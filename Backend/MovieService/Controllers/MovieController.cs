@@ -40,7 +40,7 @@ namespace MovieService.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Movie>> GetMovie(int id)
         {
-            var movie = await _context.Movies.FindAsync(id);
+            var movie = await _context.Movies.FindAsync(id); //returns the result from the request in to the "movie" variable
             if (movie == null)
             {
                 return NotFound();
@@ -67,7 +67,7 @@ namespace MovieService.Controllers
         [HttpPut("{id}")]
         public async Task<ActionResult<Movie>> CreateOrUpdateMovie(int id, MovieRegisterDto movie)
         {
-            var movieExist = await _context.Movies.FindAsync(id);
+            var movieExist = await _context.Movies.FindAsync(id); //returns the result from the request into the "movieExist" variable
             if(movieExist == null)
             {
                 movieExist = new Movie
@@ -93,7 +93,7 @@ namespace MovieService.Controllers
         [HttpDelete("{id}")]
         public async Task<ActionResult<Movie>> DeleteMovie(int id)
         {
-            var movie = await _context.Movies.FindAsync(id);
+            var movie = await _context.Movies.FindAsync(id); //returns the result from the request into the "movie" variable
             if (movie == null)
             {
                 return NotFound();

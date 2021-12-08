@@ -56,7 +56,7 @@ namespace ReviewService.Controllers
         [HttpPut("{id}")]
         public async Task<ActionResult<Review>> UpdateMovieReview(int id, ReviewTextDto dto)
         {
-            var reviewExist = await _context.Reviews.FindAsync(id);
+            var reviewExist = await _context.Reviews.FindAsync(id); //returns the result from the request into the "reviewExist" variable
             if(reviewExist == null)
             {
                 return NotFound();
@@ -74,7 +74,7 @@ namespace ReviewService.Controllers
         [HttpDelete("{id}")]
         public async Task<ActionResult<Review>> DeleteMovieReview(int id)
         {
-            var review = await _context.Reviews.FindAsync(id);
+            var review = await _context.Reviews.FindAsync(id); //returns the result from the request into the "review" variable
             if (review == null)
             {
                 return NotFound();

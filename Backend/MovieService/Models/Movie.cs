@@ -6,6 +6,7 @@ namespace MovieService.Models
     [Table("collection")]
     public class Movie
     {
+        //For retrieving movies
         public int id { get; set; }
 
         [StringLength(255)]
