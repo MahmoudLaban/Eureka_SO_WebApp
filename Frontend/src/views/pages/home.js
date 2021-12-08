@@ -1,4 +1,4 @@
-import { useState, useEffect  } from 'react';
+import { useState, useEffect } from 'react';
 import axiosInstance from '../../api';
 import Header from '../components/header';
 
@@ -32,6 +32,9 @@ function Home() {
                             required={true}
                         />
                     </div>
+                    {/*< button className="navbar-btn btn btn-primary lift ms-auto" onClick={0}>*/}
+                    {/*    Add a movie*/}
+                    {/*</button>*/}
                 </div>
                 <div className='row'>
                     {filteredMovies.map((item, k) => 
