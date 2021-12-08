@@ -24,7 +24,7 @@ namespace MovieService.Controllers
         private readonly ApplicationDBContext _context;
         public MovieController(ApplicationDBContext context)
         {
-            _context = context;
+            _context = context; //instance of the "ApplicationDBContext" Class
             
         }
 

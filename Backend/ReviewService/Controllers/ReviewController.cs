@@ -25,7 +25,7 @@ namespace ReviewService.Controllers
         
         public ReviewController(ApplicationDBContext context)
         {
-            _context = context;
+            _context = context; //instance of the "ApplicationDBContext" Class
         }
 
         #endregion

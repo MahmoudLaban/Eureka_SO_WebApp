@@ -32,7 +32,7 @@ namespace AuthService.Controllers
         private readonly AppSettings _appSettings;
         public AuthController(ApplicationDBContext context, IOptions<AppSettings> appSettings)
         {
-            _context = context;
+            _context = context; //instance of the "ApplicationDBContext" Class
             _appSettings = appSettings.Value;
         }
 
