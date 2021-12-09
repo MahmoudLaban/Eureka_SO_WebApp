@@ -67,7 +67,7 @@ namespace EurekaClient.Controllers
             return Ok(result);
         }
 
-        //GET -http://<eureka-client-ip>:8080/auth/{id}
+        //GET --http://<eureka-client-ip>:8080/auth/{id}
         [HttpGet("{id}")]
         public async Task<ActionResult<User>> GetUserDetail(int id)
         {
