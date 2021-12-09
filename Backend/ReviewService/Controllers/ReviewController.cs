@@ -45,7 +45,8 @@ namespace ReviewService.Controllers
             {
                 user_id = dto.user_id,
                 movie_id = dto.movie_id,
-                review_text = dto.review_text
+                review_text = dto.review_text,
+                rating = dto.rating,
             };
             await _context.Reviews.AddAsync(newReview);
             await _context.SaveChangesAsync();
@@ -64,6 +65,7 @@ namespace ReviewService.Controllers
             else
             {
                 reviewExist.review_text = dto.review_text;
+                reviewExist.rating = dto.rating;
                 _context.Reviews.Update(reviewExist);
                 await _context.SaveChangesAsync();
                 return reviewExist;

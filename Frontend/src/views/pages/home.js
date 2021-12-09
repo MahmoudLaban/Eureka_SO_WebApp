@@ -16,7 +16,7 @@ function Home() {
     }
     // create addMovie function
     const addMovie = () => {
-        console.log("aaaaaa");
+
     }
     useEffect(() => {
         getMovies();
@@ -51,16 +51,21 @@ function Home() {
                 <div className='row'>
                     {filteredMovies.map((item, k) => 
                         <div className='col-12 col-md-3 mt-3' key={k}>
-                            <div className='card p-3 shadow bg-info' style={{borderColor: '#000000'}}>          
-                                <a href={`/movie/${item.id}`}>
-                                    <label className='card-header border-primary font-weight-bold text-dark' style={{borderColor: '#000000'}}>{item.title}</label>
-                                </a>
-                                <label>{item.genre}</label>
-                                <div className='row'>
-                                    <div className='col-6'>
-                                        <span className=''>{item.year}</span>
+                            <div className='card shadow bg-info' style={{borderColor: '#000000'}}>
+                                <div className="card-header">
+                                    <a href={`/movie/${item.id}`}>
+                                        <span className='font-weight-bold text-dark' style={{borderColor: '#000000'}}>{item.title}</span>
+                                    </a>
+                                </div>        
+                                <div className="card-body">
+                                    <label>{item.genre}</label>
+                                    <div className='row'>
+                                        <div className='col-6'>
+                                            <span className=''>{item.year}</span>
+                                        </div>
                                     </div>
                                 </div>
+                                
                             </div>
                         </div>
                     )}

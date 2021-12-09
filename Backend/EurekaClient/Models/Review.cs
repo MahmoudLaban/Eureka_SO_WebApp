@@ -11,5 +11,7 @@ namespace EurekaClient.Models
         [StringLength(512)]
         public string review_text { get; set; }
 
+        public int rating { get; set; }
+
     }
 }

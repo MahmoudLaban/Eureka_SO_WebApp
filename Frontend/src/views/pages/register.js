@@ -137,7 +137,7 @@ function Register() {
                             </Row>
                             <div className="row mt-4">
                                 <div className="col-12">
-                                    <Button style={{width:"100%"}} type='submit'>Register</Button>
+                                    <Button style={{width:"100%", backgroundColor: '#000000', borderColor: '#000000', color: '#FFA500', fontfamily: 'arial', fontWeight: 'bold'}} type='submit'>Register</Button>
                                 </div>
                                 <div className="col-12 pt-2">
                                     <span>Or log in if you have an account:</span><a className='ml-3 font-weight-bold text-warning' href="/login">Login</a>

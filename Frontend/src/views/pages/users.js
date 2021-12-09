@@ -47,7 +47,7 @@ function Users() {
                     {filteredUsers.map((item, k) => 
                         <div className='col-12 col-md-4 mt-3' key={k}>
                             
-                            <div className='card p-3 shadow' style={{backgroundColor: '#808000'}, {borderColor: '#000000'}}>
+                            <div className='card p-3 shadow' style={{backgroundColor: '#808000', borderColor: '#000000'}}>
                                 
                                     <label className='font-weight-bold'> UserName: {item.username}</label>
                                 fcseng
