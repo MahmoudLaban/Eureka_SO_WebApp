@@ -30,14 +30,14 @@ namespace ReviewService.Controllers
 
         #endregion
 
-        //GET -Http://ReviewService/review/{movie_id}
+        //GET api/review/{movie_id}
         [HttpGet("{movie_id}")]
         public async Task<ActionResult<List<Review>>> GetMovieReviews(int movie_id)
         {
             return await _context.Reviews.Where(x => x.movie_id == movie_id).ToListAsync();
         }
 
-        //POST -Http://ReviewService/review/
+        //POST api/review/
         [HttpPost]
         public async Task<ActionResult<Review>> AddMovieReview(ReviewLiteDto dto)
         {
@@ -52,7 +52,7 @@ namespace ReviewService.Controllers
             return newReview;
         }
 
-        //PUT -Http://ReviewService/review/{id}
+        //PUT api/review/{id}
         [HttpPut("{id}")]
         public async Task<ActionResult<Review>> UpdateMovieReview(int id, ReviewTextDto dto)
         {
@@ -70,7 +70,7 @@ namespace ReviewService.Controllers
             }
         }
 
-        //DELETE -Http://ReviewService/review/{id}
+        //DELETE api/review/{id}
         [HttpDelete("{id}")]
         public async Task<ActionResult<Review>> DeleteMovieReview(int id)
         {

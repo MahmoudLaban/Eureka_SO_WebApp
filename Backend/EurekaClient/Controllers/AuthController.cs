@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using Steeltoe.Common.Discovery;
 using Steeltoe.Discovery;
+using System.Collections.Generic;
 using System.Net.Http;
 using System.Net.Http.Json;
 using System.Text.Json;
@@ -81,6 +82,12 @@ namespace EurekaClient.Controllers
             {
                 return NotFound();
             }
+        }
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<User>>> GetAllUsers()
+        {
+            var response = await _httpClient.GetFromJsonAsync<IEnumerable<User>>(baseDiscoveryUrl); //returns the result from the request into the "response" variable
+            return Ok(response);
         }
     }
 }

@@ -58,7 +58,7 @@ function Register() {
                         <div className="login-part">
                             <Row>
                                 <Col className="col-12 text-center">
-                                    <label >Please enter your log in details</label>
+                                    <label >Please chose your new account details</label>
                                 </Col>
                                 <Col className="col-12 text-center">
                                     {error &&<label className="text-danger">{message}</label>}
@@ -140,7 +140,7 @@ function Register() {
                                     <Button style={{width:"100%"}} type='submit'>Register</Button>
                                 </div>
                                 <div className="col-12 pt-2">
-                                    <span>Or log in if you have an account:</span><a className='ml-3' href="/login">Login</a>
+                                    <span>Or log in if you have an account:</span><a className='ml-3 font-weight-bold text-warning' href="/login">Login</a>
                                 </div>
                             </div>
                         </div>

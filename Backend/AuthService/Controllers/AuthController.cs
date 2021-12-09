@@ -1,5 +1,6 @@
 ﻿using AuthService.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
@@ -38,7 +39,7 @@ namespace AuthService.Controllers
 
         #endregion
 
-        //POST -Http://AuthService/Auth/"auth-user"
+        //POST api/Auth/"auth-user"
         [HttpPost("auth-user")]
         public IActionResult Authenticate(AuthenticateRequest model)
         {
@@ -60,7 +61,7 @@ namespace AuthService.Controllers
             return Ok(authResponse);
         }
 
-        //POST -Http://AuthService/Auth/
+        //POST api/Auth/
         [HttpPost]
         public async Task<ActionResult<User>> CreateUser(RegisterUserDto model)
         {
@@ -83,7 +84,7 @@ namespace AuthService.Controllers
             return Ok(new { success = success });
         }
 
-        //GET -Http://AuthService/Auth/{id}
+        //GET api/Auth/{id}
         [HttpGet("{id}")]
         public async Task<ActionResult<User>> GetUserDetail(int id)
         {
@@ -93,6 +94,14 @@ namespace AuthService.Controllers
                 return NotFound();
             }
             return user;
+        }
+
+
+        //GET api/Auth/ 
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<User>>> GetAllUsers()
+        {
+            return await _context.Users.ToListAsync();
         }
     }
 }

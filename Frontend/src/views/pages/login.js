@@ -83,10 +83,10 @@ function Login() {
                             </Row>
                             <div className="row mt-4">
                                 <div className="col-12">
-                                    <Button style={{width:"100%"}} type='submit'>Login</Button>
+                                <Button style={{width:"100%"}} style={{backgroundColor: '#000000'}, {borderColor: '#000000'}} type='submit'>Login</Button>
                                 </div>
-                                <div className="col-12 pt-2">
-                                    <span>Do you have an account?</span><a className='ml-3' href="/register">Sign Up</a>
+                                <div className="col-12 pt-2 ">
+                                    <span>Do you have an account?</span><a className='ml-3 text-warning font-weight-bold' href="/register">Sign Up</a>
                                 </div>
                             </div>
                         </div>

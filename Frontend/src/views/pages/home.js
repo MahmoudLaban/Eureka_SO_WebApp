@@ -14,13 +14,17 @@ function Home() {
     const searchMovie = (searchText) => {
         setFilteredMovies(movies.filter((item) => item.title.toLowerCase().includes(searchText)))
     }
+    // create addMovie function
+    const addMovie = () => {
+        console.log("aaaaaa");
+    }
     useEffect(() => {
         getMovies();
     }, []);
     return (
-        <div>
+        <div >
             <Header />
-            <div className="container">
+            <div className="container mt-3">
                 <div className='row'>
                     <div className='col-6'>
                         <input 
@@ -32,17 +36,24 @@ function Home() {
                             required={true}
                         />
                     </div>
-                    {/*< button className="navbar-btn btn btn-primary lift ms-auto" onClick={0}>*/}
-                    {/*    Add a movie*/}
-                    {/*</button>*/}
+                    <div className='col-6 text-right'>
+                        <button 
+                            className='btn btn-primary lift ms-auto bg-warning text-dark'
+                            style={{borderColor: '#000000'}}
+                            // triggered addMovie function when user click this button.
+                            onClick={()=>{
+                                addMovie();
+                            }}
+                            
+                        >Add a Movie</button>
+                    </div>
                 </div>
                 <div className='row'>
                     {filteredMovies.map((item, k) => 
-                        <div className='col-12 col-md-4 mt-3' key={k}>
-                            
-                            <div className='card p-3 shadow'>
+                        <div className='col-12 col-md-3 mt-3' key={k}>
+                            <div className='card p-3 shadow bg-info' style={{borderColor: '#000000'}}>          
                                 <a href={`/movie/${item.id}`}>
-                                    <label className='font-weight-bold'>{item.title}</label>
+                                    <label className='card-header border-primary font-weight-bold text-dark' style={{borderColor: '#000000'}}>{item.title}</label>
                                 </a>
                                 <label>{item.genre}</label>
                                 <div className='row'>

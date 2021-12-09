@@ -70,7 +70,7 @@ function MovieDetail(props) {
                         <a href='/'>All Movies</a> / {movieDetail.title}
                     </div>
                     <div className='col-12 mt-2'>
-                        <div className='card shadow p-4'>
+                        <div className='shadow p-4' style={{backgroundColor: '#008080'}, {borderColor: '#000000'}}>
                             <div className='row'>
                                 <div className='col-md-9'>{movieDetail.genre}</div>
                                 <div className='col-md-3'>{movieDetail.year}</div>
@@ -81,7 +81,7 @@ function MovieDetail(props) {
                     {reviews && reviews.map((item, k) => 
                         <div className='col-12 mt-3' key={k}>
                             
-                            <div className='card p-3 shadow'>
+                            <div className='card p-3 shadow' style={{backgroundColor: '#008080'}, {borderColor: '#000000'}}>
                                 <div className='row'>
                                     <div className='col-9'>
                                         <span className=''>{item.review_text}</span>

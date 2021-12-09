@@ -29,14 +29,15 @@ namespace MovieService.Controllers
         }
 
         #endregion
-        //GET -Http://MovieService/movie/
+
+        //GET api/movie/
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Movie>>> GetAllMovies()
         {
             return await _context.Movies.ToListAsync();
         }
-                
-        //GET -Http://MovieService/movie/{id}
+
+        //GET api/movie/{id}
         [HttpGet("{id}")]
         public async Task<ActionResult<Movie>> GetMovie(int id)
         {
@@ -48,7 +49,7 @@ namespace MovieService.Controllers
             return movie;
         }
 
-        //POST -Http://MovieService/movie/
+        //POST api/movie/
         [HttpPost]
         public async Task<ActionResult<Movie>> AddMovie(MovieRegisterDto movie)
         {
@@ -63,7 +64,7 @@ namespace MovieService.Controllers
             return newMovie;
         }
 
-        //PUT -Http://MovieService/movie/{id}
+        //PUT api/movie/{id}
         [HttpPut("{id}")]
         public async Task<ActionResult<Movie>> CreateOrUpdateMovie(int id, MovieRegisterDto movie)
         {
@@ -89,7 +90,7 @@ namespace MovieService.Controllers
             return movieExist;
         }
 
-        //DELETE -Http://MovieService/movie/{id}
+        //DELETE api/movie/{id}
         [HttpDelete("{id}")]
         public async Task<ActionResult<Movie>> DeleteMovie(int id)
         {
