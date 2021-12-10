@@ -14,6 +14,7 @@ function MovieDetail(props) {
     const [btnAddReviewText, setBtnAddReviewText] = useState('Add a Review');
     const movie_id = props.match.params.id;
     const [selReviewId, setSelReviewId] = useState(-1);
+    const [avgRating, setAvgRating] = useState(0.0);
     
     const getMovieDetail = async (id) => {
         const movieDetail = await axiosInstance.get(`Movie/${id}`);
@@ -21,6 +22,11 @@ function MovieDetail(props) {
         console.log(reviews);
         setMovieDetail(movieDetail.data);
         setReviews(reviews.data);
+        let sumRating = 0;
+        reviews.data.forEach(element => {
+            sumRating += element.rating;
+        });
+        setAvgRating(sumRating/reviews.data.length);
     }
 
     const addReview = async () => {
@@ -82,9 +88,10 @@ function MovieDetail(props) {
                     <div className='col-12 mt-2'>
                         <div className='shadow p-4' style={{backgroundColor: '#008080', borderColor: '#000000'}}>
                             <div className='row'>
-                                <div className='col-md-9'>{movieDetail.genre}</div>
-                                <div className='col-md-3'>{movieDetail.year}</div>
-                                
+                                <div className='col-md-3'>Genre: {movieDetail.genre}</div>
+                                <div className='col-md-3'>Published At: {movieDetail.year}</div>
+                                <div className='col-md-3'>Avg Rating: {avgRating.toFixed(2)}</div>
+                                <div className='col-md-3'>Total Reviews: {reviews.length}</div>
                             </div>
                         </div>
                     </div>
