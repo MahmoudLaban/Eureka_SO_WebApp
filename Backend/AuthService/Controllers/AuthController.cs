@@ -103,5 +103,25 @@ namespace AuthService.Controllers
         {
             return await _context.Users.ToListAsync();
         }
+
+        //DELETE api/auth/{id}
+        [HttpDelete("{id}")]
+        public async Task<ActionResult> DeleteUser(int id)
+        {
+            var user = await _context.Users.FindAsync(id); //returns the result from the request into the "user" variable
+            if (user == null)
+            {
+                return NotFound();
+            }
+            else
+            {
+                _context.Users.Remove(user);
+                await _context.SaveChangesAsync();
+                return Ok();
+            }
+        }
+
+
+
     }
 }

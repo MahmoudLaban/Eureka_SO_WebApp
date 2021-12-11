@@ -83,11 +83,27 @@ namespace EurekaClient.Controllers
                 return NotFound();
             }
         }
+        //GET --http://<eureka-client-ip>:8080/auth/
         [HttpGet]
         public async Task<ActionResult<IEnumerable<User>>> GetAllUsers()
         {
             var response = await _httpClient.GetFromJsonAsync<IEnumerable<User>>(baseDiscoveryUrl); //returns the result from the request into the "response" variable
             return Ok(response);
         }
+        //Delete --http://<eureka-client-ip>:8080/auth/{id}
+        [HttpDelete("{id}")]
+        public async Task<ActionResult> DeleteUser(int id)
+        {
+            var response = await _httpClient.DeleteAsync(baseDiscoveryUrl + "/" + id.ToString());   //returns the result from the request into the "response" variable
+            if (response.IsSuccessStatusCode)
+            {
+                return Ok();
+            }
+            else
+            {
+                return NotFound();
+            }
+        }
     }
+    
 }

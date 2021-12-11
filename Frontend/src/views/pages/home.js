@@ -22,8 +22,8 @@ function Home() {
     const searchMovie = (searchText) => {
         setFilteredMovies(movies.filter((item) => item.title.toLowerCase().includes(searchText)))
     }
-    // create addMovie function
 
+    // create addMovie function
     const AddMovie = async () => {
         console.log(title, genre, year)
         if (title.length === 0){

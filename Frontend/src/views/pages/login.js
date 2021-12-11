@@ -24,6 +24,7 @@ function Login() {
                 setError(false);
                 localStorage.setItem('user_id', data.data.id);
                 localStorage.setItem('access_token', data.data.token);
+                localStorage.setItem('username', data.data.username);
                 window.location.href = '/';
             }
             return data;

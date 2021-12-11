@@ -1,6 +1,6 @@
-import { isLoginedUser, logout } from "../../auth";
+import { isLoginedUser, logout, getLoginedUserName } from "../../auth";
 
-function Header() {
+function Header(props) {
 
     return (
         <nav className="navbar navbar-expand-lg navbar-light" style={{backgroundColor: '#000000'}}>
@@ -12,7 +12,12 @@ function Header() {
                     <ul className="navbar-nav ml-auto">
                         <li className="mr-1" >
                             <button className="btn btn-warning">
-                                <a  style={{borderColor: '#000000', color: '#000000'}} href="/users">Search users</a>
+                                {
+                                    props.mode !== "user" ? 
+                                    <a  style={{borderColor: '#000000', color: '#000000'}} href="/users">Search users</a> 
+                                    : 
+                                    <a  style={{borderColor: '#000000', color: '#000000'}} href="/">Search movies</a>
+                                }
                             </button>
                         </li>
                     </ul>
@@ -22,9 +27,13 @@ function Header() {
                     <a className="navbar-btn btn btn-primary lift ms-auto" href="/login">
                         Login
                     </a> ) : (
-                    <button className="navbar-btn btn btn-primary lift ms-auto bg-warning text-dark" style={{borderColor: '#000000', backgroundColor: '#808000'}} onClick={logout}>
-                        Logout
-                    </button> )
+                        <div>
+                            <span className="text-white">{getLoginedUserName()}</span>
+                            <button className="navbar-btn btn btn-primary lift ms-auto bg-warning text-dark" style={{borderColor: '#000000', backgroundColor: '#808000'}} onClick={logout}>
+                                Logout
+                            </button>
+                        </div>
+                     )
                 }
             </div>
         </nav>

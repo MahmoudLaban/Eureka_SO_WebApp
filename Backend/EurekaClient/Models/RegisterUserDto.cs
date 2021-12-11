@@ -2,17 +2,13 @@
 
 namespace EurekaClient.Models
 {
-    public class RegisterUserDto
+    public class DeleteUserDto
     {
-        //Class used to add or edit user(s)
+        //Class used to delete user(s)
 
         [Required]
         public string Username { get; set; }
 
-        [Required]
-        public string Password { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string Email { get; set; }
+ 
     }
 }

@@ -51,7 +51,7 @@ function MovieDetail(props) {
             setReviewText('');
             setSelReviewId(-1);
             setRating(0);
-            setBtnAddReviewText('Add a Review');
+            setBtnAddReviewText('Add a review');
             getMovieDetail(movie_id);
         }else{
             window.location.href = '/login';
@@ -83,7 +83,7 @@ function MovieDetail(props) {
             <div className="container">
                 <div className='row'>
                     <div className='col-12'>
-                        <a href='/'>All Movies</a> / {movieDetail.title}
+                        <a style={{color: '#FFA500'}} href='/'>All Movies</a> / {movieDetail.title}
                     </div>
                     <div className='col-12 mt-2'>
                         <div className='shadow p-4' style={{backgroundColor: '#008080', borderColor: '#000000'}}>
@@ -132,7 +132,7 @@ function MovieDetail(props) {
                     
                     }
                     <div className='col-12 mt-2'>
-                        <button className='btn btn-primary' onClick={() => addReview()}>{btnAddReviewText}</button>
+                        <button className='btn btn-primary lift ms-auto bg-warning text-dark' style={{borderColor: '#000000'}} onClick={() => addReview()}>{btnAddReviewText}</button>
                     </div>
                     
                 </div>

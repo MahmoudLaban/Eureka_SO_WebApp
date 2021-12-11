@@ -2,7 +2,9 @@
 export const isLoginedUser = () => {
     return localStorage.getItem('access_token') != null ? true : false;
 }
-
+export const getLoginedUserName = () => {
+    return localStorage.getItem('username') != null ? localStorage.getItem('username') : "";
+}
 export const getLoginedId = () => {
     return localStorage.getItem('user_id') != null ? localStorage.getItem('user_id') : -1;
 }
