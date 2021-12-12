@@ -55,7 +55,12 @@ function Home() {
         setErrTitle('');
     }
     const showCloseModal = (show) => {
-        setShow(show);
+        if (isLoginedUser()){
+            setShow(show);
+        }else{
+            alert('You must login to add movie')
+        }
+        
     }
 
     useEffect(() => {
@@ -77,11 +82,9 @@ function Home() {
                         />
                     </div>
                     <div className='col-6 text-right'>
-                    
                         <button 
                             className='btn btn-primary lift ms-auto bg-warning text-dark'
                             style={{borderColor: '#000000'}}
-                            
                             // triggered addMovie function when user click this button.
                             onClick={()=>{
                                 showCloseModal(true)

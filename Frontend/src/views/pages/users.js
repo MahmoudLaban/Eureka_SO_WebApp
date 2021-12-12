@@ -7,7 +7,7 @@ import { Modal } from 'react-bootstrap';
 function Users() {
     const [users, setUsers] = useState([]);
     const [show, setShow] = useState(false);
-    const [userId, setUserId] = useState('');
+    const [userId, setUserId] = useState('-1');
     const [filteredUsers, setFilteredUsers] = useState([]);
     const getUsers = async () => {
         const data = await axiosInstance.get('Auth');
@@ -21,13 +21,14 @@ function Users() {
 
     // create delete user function
     const Deleteuser = async () => {
-        setShow(false);
-        await axiosInstance.delete(`Auth/${userId}`);
-        // refresh users list
-        getUsers();
-        // clear input value
-        setUserId('');
-
+        if (userId !== "-1"){
+            setShow(false);
+            await axiosInstance.delete(`Auth/${userId}`);
+            // refresh users list
+            getUsers();
+            // clear input value
+            setUserId('-1');
+        }
     }
     const showCloseModal2 = (show) => {
         setShow(show);
@@ -113,6 +114,7 @@ function Users() {
                                 setUserId(e.target.value);
                             }}
                         >
+                            <option value="-1">Please select user from the list</option>
                             {filteredUsers.filter((item) => item.username !== "admin").map((item, k) => 
                                 <option value={item.id}>{item.username}</option>
                             )}
