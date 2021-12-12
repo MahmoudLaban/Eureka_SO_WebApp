@@ -89,6 +89,9 @@ function Login() {
                                 <div className="col-12 pt-2 ">
                                     <span>Do you have an account?</span><a className='ml-3 text-warning font-weight-bold' href="/register">Sign Up</a>
                                 </div>
+                                <div className="col-12 pt-2 ">
+                                    <span>Continue without logging in:</span><a className='ml-3 text-warning font-weight-bold' href="/">No Log in</a>
+                                </div>
                             </div>
                         </div>
                     </div>

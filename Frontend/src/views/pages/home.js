@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import axiosInstance from '../../api';
 import Header from '../components/header';
+import { getLoginedUserName, isLoginedUser } from "../../auth";
 import { Modal } from 'react-bootstrap';
 
 function Home() {
@@ -25,7 +26,7 @@ function Home() {
 
     // create addMovie function
     const AddMovie = async () => {
-        console.log(title, genre, year)
+        console.log(title, genre, year, getLoginedUserName)
         if (title.length === 0){
             setErrTitle("Please type your title");
             return;
@@ -76,9 +77,11 @@ function Home() {
                         />
                     </div>
                     <div className='col-6 text-right'>
+                    
                         <button 
                             className='btn btn-primary lift ms-auto bg-warning text-dark'
                             style={{borderColor: '#000000'}}
+                            
                             // triggered addMovie function when user click this button.
                             onClick={()=>{
                                 showCloseModal(true)
@@ -177,6 +180,7 @@ function Home() {
                         className="btn btn-primary" 
                         onClick={()=>{
                             AddMovie()
+                       
                         }}
                     >
                     Save

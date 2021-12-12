@@ -18,7 +18,7 @@ function Users() {
     const searchUser = (searchText) => {
         setFilteredUsers(users.filter((item) => item.username.toLowerCase().includes(searchText)))
     }
-    
+
     // create delete user function
     const Deleteuser = async () => {
         setShow(false);

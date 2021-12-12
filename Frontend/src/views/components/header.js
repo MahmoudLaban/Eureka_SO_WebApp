@@ -7,6 +7,7 @@ function Header(props) {
             <div className="container">
                 <a className="navbar-brand" style={{color: '#FFA500'}} href="/">
                     <h2>So Web APP</h2>
+                    <span className="text-white">{'Logged in user = ' + getLoginedUserName()}</span>
                 </a>
                 <div className="collapse navbar-collapse" id="navbarCollapse">
                     <ul className="navbar-nav ml-auto">
@@ -28,7 +29,6 @@ function Header(props) {
                         Login
                     </a> ) : (
                         <div>
-                            <span className="text-white">{getLoginedUserName()}</span>
                             <button className="navbar-btn btn btn-primary lift ms-auto bg-warning text-dark" style={{borderColor: '#000000', backgroundColor: '#808000'}} onClick={logout}>
                                 Logout
                             </button>

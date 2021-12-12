@@ -10,6 +10,7 @@ function Register() {
     const [password, setPassword] = useState('');
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
+    const [email, setEmail] = useState('');
     const [password1, setPassword1] = useState('');
     const [error, setError] = useState(false);
     const [message, setMessage] = useState(false);
@@ -26,7 +27,8 @@ function Register() {
                     username: userName,
                     password: password,
                     firstName: firstName,
-                    lastName: lastName
+                    lastName: lastName,
+                    email: email,
                 });
                 console.log(data.data)
                 if (data.data.success === false){
@@ -86,6 +88,19 @@ function Register() {
                                         placeholder="Last Name"
                                         onChange={(e)=>{
                                             setLastName(e.target.value);
+                                        }}
+                                        required={true}
+                                    />
+                                </Col>
+                            </Row>
+                            <Row className="mt-3">
+                                <Col className="col-12">
+                                    <input 
+                                        className='w-100 p-2'
+                                        value={email}
+                                        placeholder="e-mail"
+                                        onChange={(e)=>{
+                                            setEmail(e.target.value);
                                         }}
                                         required={true}
                                     />
