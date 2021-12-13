@@ -51,8 +51,6 @@ namespace EurekaClient.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Movie>> GetMovie(int id)
         {
-
-            // here you can explain you are not using hard-corded , thus you are using http://MovieService/Movie/{id} ok? yes
             var response = await _httpClient.GetAsync(baseDiscoveryUrl + "/" + id.ToString()); //returns the result from the request into the "response" variable
             if (response.IsSuccessStatusCode) //Gets a value that indicates whether the HTTP response was successful
             {

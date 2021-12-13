@@ -17,6 +17,7 @@ using System.Threading.Tasks;
 -https://www.vitoshacademy.com/c-create-a-web-api-with-asp-net-core-video/
 */
 
+
 namespace EurekaClient.Controllers
 {
     [ApiController] //From VS .Net template. The "ApiController" attribute applies web API behavior
