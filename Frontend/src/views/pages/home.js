@@ -58,7 +58,7 @@ function Home() {
         if (isLoginedUser()){
             setShow(show);
         }else{
-            alert('You must login to add movie')
+            alert('You must be logged in to add a movie')
         }
         
     }

@@ -54,7 +54,8 @@ function MovieDetail(props) {
             setBtnAddReviewText('Add a review');
             getMovieDetail(movie_id);
         }else{
-            window.location.href = '/login';
+         //   window.location.href = '/login';
+         alert('You must be logged in to add a review')
         }
     }
     const selectUpdateReview = (id, review_text, rating) => {

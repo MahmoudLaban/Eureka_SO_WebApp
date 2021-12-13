@@ -21,7 +21,7 @@ function Users() {
 
     // create delete user function
     const Deleteuser = async () => {
-        if (userId !== "-1"){
+        if (userId != "-1"){
             setShow(false);
             await axiosInstance.delete(`Auth/${userId}`);
             // refresh users list
@@ -47,7 +47,8 @@ function Users() {
             }
             
         }else{
-            window.location.href = '/login';
+            window.location.href = '/';
+            alert('You must be logged in to search users')
         }
         
     }, []);
