@@ -34,7 +34,7 @@ namespace ReviewService.Controllers
         [HttpGet("{movie_id}")]
         public async Task<ActionResult<List<Review>>> GetMovieReviews(int movie_id)
         {
-            return await _context.Reviews.Where(x => x.movie_id == movie_id).ToListAsync();
+            return await _context.Reviews.Where(x => x.movie_id == movie_id).ToListAsync(); 
         }
 
         //POST api/review/

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AuthService.Models
 {
-    //From Entity Framework to implement ORM
+    //From Entity Framework to implement ORM -https://docs.microsoft.com/en-us/ef/core/dbcontext-configuration/
     public class ApplicationDBContext : DbContext
     {
         public ApplicationDBContext()
