@@ -2,7 +2,7 @@
 
 namespace MovieService.Models
 
-    // ORM -https://docs.microsoft.com/en-us/ef/core/dbcontext-configuration/
+// From Entity Framework to implement ORM -https://docs.microsoft.com/en-us/ef/core/dbcontext-configuration/
 {
     public class ApplicationDBContext : DbContext
     {
