@@ -9,7 +9,7 @@ using System.Net.Http.Json;
 using System.Text.Json;
 using System.Threading.Tasks;
 
-/*references:
+/*references
 -https://faun.pub/restful-web-api-using-c-net-core-3-1-with-sqlite-f020d76c9b89 
 -https://docs.microsoft.com/en-us/aspnet/core/tutorials/first-web-api?view=aspnetcore-5.0&tabs=visual-studio
 -https://docs.microsoft.com/en-us/aspnet/core/web-api/?view=aspnetcore-6.0
